@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+:root {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.6rem;
+    background-color: var(--primary-color);
+    min-height: 100vh;
+    display: flex;
+} 
+
+main, #profile, #filter, #field, input {
+    width: 100%;
+}
+
+#profile, #filter {
+    @include flex-center();
+    justify-content: space-between;
+    padding: 0 2.4rem;
+}
+
+button, input {
+    font-weight: 400;
+    border: none;
+}
+
+button, a {
+    cursor: pointer;
+}
+
+.group-task {
+    min-width: 40rem;
+}

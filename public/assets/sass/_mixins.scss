@@ -1,0 +1,48 @@
+@mixin flex-center($align: center) {
+    display: flex;
+    align-items: $align;
+}
+
+@mixin is-dragging() {
+    border: 0.2rem dashed $primary-color;
+}
+
+@mixin task-preview() {
+    opacity: 0.6;
+}
+
+@mixin personalized-scroll() {
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $primary-color;
+        border-radius: 999rem;
+    }
+
+    &::-webkit-scrollbar {
+        width: 0.5rem;
+        height: 0.5rem;
+    }
+    
+}
+
+@mixin link-menu() {
+
+    li {
+        @include flex-center();
+        gap: 1.6rem;
+
+        a {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: $light-gray;
+            transition: all 0.25s ease;
+    
+            &:hover, &.activated {
+                color: $hover-white-color;
+                font-weight: 700;
+            }
+        }
+    }
+
+    
+}

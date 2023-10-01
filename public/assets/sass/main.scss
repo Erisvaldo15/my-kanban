@@ -1,0 +1,202 @@
+@import "variables";
+@import "animations";
+@import "mixins";
+@import "reset";
+
+nav {
+    @include flex-center();
+    flex-direction: column;
+    gap: 5.94rem;
+    background-color: $primary-color;
+    width: 18rem;
+    padding-top: 3.2rem;
+
+    & > img:nth-child(3) {
+        display: none;
+    }
+
+    ul {
+        display: grid;
+        gap: 3.6rem;
+        @include link-menu();
+    }
+
+    #icon-menu {
+        cursor: pointer
+    }
+}
+
+main {
+    position: relative;
+    background-color: $white-color;
+    border-top-left-radius: 3.2rem;
+    padding: 4.8rem 3.2rem;
+
+    & > * {
+        width: 100%;
+    }
+
+    #navbar-mobile {
+        display: none;
+    }
+
+    #filter {
+        gap: 1.6rem;
+        margin: 3.2rem 0;
+
+        button {
+            @include flex-center();
+            justify-content: center;
+            background-color: $primary-color;
+            font-size: 1.4rem;
+            color: $hover-white-color;
+            padding: 1.2rem 3.2rem;
+            border-radius: 0.5rem;
+            gap: 0.8rem;
+            line-height: 2.4rem;
+            text-shadow: 0 0.4rem 1.6rem #1616161a;
+            transition: all 0.25s ease;
+
+            &:hover {
+                background-color: $secondary-color;
+            }
+        }
+
+        #field {
+            @include flex-center();
+            background-color: $hover-white-color;
+            border: 0.07rem solid $super-light-gray;
+            border-radius: 0.8rem;
+            height: 4.8rem;
+            padding: 2.4rem;
+            box-shadow: 0 0.4rem 1.6rem 0 rgba(22, 22, 22, 0.1);
+
+            input {
+                font-size: 1.6rem;
+                line-height: 1.6rem;
+                color: $gray;
+                margin-left: 0.8rem;
+                outline: none;
+            }
+        }
+    }
+
+    #edit {
+        @include flex-center();
+        gap: 1.2rem;
+    }
+
+    #tasks {
+        @include flex-center(start);
+        justify-content: space-between;
+        gap: 4.8rem;
+        height: 70vh;
+        overflow: auto;
+        padding: 2rem;
+        @include personalized-scroll();
+
+        .status {
+            padding: 2.4rem;
+        }
+
+        .dropzone {
+            @include flex-center();
+            flex-direction: column;
+            gap: 2.4rem;
+            border-radius: 0.5rem;
+            min-height: calc(98.7rem - 11rem);
+
+            .task {
+                width: 40rem;
+                background-color: $hover-white-color;
+                padding: 2.4rem;
+                box-shadow: 0px 0.4rem 1.6rem 0px #eae2fd;
+
+                p {
+                    font-size: 1.4rem;
+                    color: var($super-gray);
+                    display: -webkit-box;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    margin: 1rem 0;
+                }
+
+                .topics {
+                    @include flex-center();
+                    gap: 0.8rem;
+
+                    .topic {
+                        font-size: 1.1rem;
+                        background-color: $mid-white;
+                        color: $primary-color;
+                        font-weight: 500;
+                        padding: 0.4rem 0.8rem;
+                        border-radius: 0.8rem;
+                    }
+                }
+            }
+
+            .task.is-dragging {
+                @include is-dragging();
+            }
+
+            .task.preview {
+                @include task-preview();
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1650px) {
+
+    body {
+        flex-direction: column;
+    }
+
+    nav {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        padding: 3.2rem;
+
+        ul {
+            display: none;
+        }
+
+        img:nth-child(3) {
+            display: block;
+        }
+    }
+
+    #navbar-mobile.activate {
+
+        display: block;
+
+        ul {
+            @include flex-center();
+            flex-direction: column;
+            justify-content: center;
+            gap: 5rem;
+            background-color: $primary-color;
+            width: 50rem;
+            min-height: 100vh;
+            position: absolute;
+            top: 0;
+            right: 0;
+            animation: show 0.75s ease-in-out;
+            @include link-menu();
+            overflow-y: auto;
+        }
+
+    }
+
+    #profile img:nth-child(1) {
+        width: 90%;
+    }
+
+    #tasks {
+        justify-content: flex-start;
+    }
+}
