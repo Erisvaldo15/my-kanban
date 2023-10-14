@@ -1,9 +1,8 @@
 @import "variables";
-@import "animations";
 @import "mixins";
 @import "reset";
 
-nav {
+header {
     @include flex-center();
     flex-direction: column;
     gap: 5.94rem;
@@ -21,8 +20,9 @@ nav {
         @include link-menu();
     }
 
-    #icon-menu {
-        cursor: pointer
+    #icon-menu-mobile {
+        display: none;
+        cursor: pointer;
     }
 }
 
@@ -34,10 +34,6 @@ main {
 
     & > * {
         width: 100%;
-    }
-
-    #navbar-mobile {
-        display: none;
     }
 
     #filter {
@@ -90,7 +86,8 @@ main {
         @include flex-center(start);
         justify-content: space-between;
         gap: 4.8rem;
-        height: 70vh;
+        height: calc(100vh - 40rem);
+        max-width: 96vw;
         overflow: auto;
         padding: 2rem;
         @include personalized-scroll();
@@ -150,53 +147,84 @@ main {
 }
 
 @media screen and (max-width: 1650px) {
-
     body {
         flex-direction: column;
     }
 
-    nav {
+    header {
         flex-direction: row;
         justify-content: space-between;
         width: 100%;
         padding: 3.2rem;
 
-        ul {
-            display: none;
-        }
-
-        img:nth-child(3) {
-            display: block;
-        }
-    }
-
-    #navbar-mobile.activate {
-
-        display: block;
-
-        ul {
+        nav {
             @include flex-center();
             flex-direction: column;
             justify-content: center;
-            gap: 5rem;
-            background-color: $primary-color;
-            width: 50rem;
-            min-height: 100vh;
             position: absolute;
-            top: 0;
-            right: 0;
-            animation: show 0.75s ease-in-out;
-            @include link-menu();
-            overflow-y: auto;
+            overflow: hidden;  // Resolve o bug dos links de navegação aparecendo mesmo quando fechado o menu...        
+            visibility: hidden;
+            top: 12rem;
+            left: 0;
+            width: 100%;
+            background-color: $primary-color;
+            height: 0;
+            z-index: 2;
+            gap: 4rem;
+            transition: all 0.8s ease-in-out;
         }
 
+        nav.mobile {
+            visibility: visible;   
+            height: calc(100vh - 12rem);
+        }
+
+        #icon-menu-mobile {
+            display: block;
+            width: 4rem;
+            height: 4rem;
+            border: 0.25rem solid #fff;
+            border-radius: 0.25rem;
+            background: none;
+            padding: 0.5rem;
+
+            .line {
+                display: block;
+                margin: 0.5rem auto;
+                width: 100%;
+                height: 0.2rem;
+                background-color: $white-color;
+                position: relative;
+                transform-origin: center;
+            }
+        }
+
+        #icon-menu-mobile.activate {
+            background-color: $secondary-color;
+            @include close-animation();
+        }
     }
 
-    #profile img:nth-child(1) {
-        width: 90%;
+    #profile {
+        img:nth-child(1) {
+            width: 90%;
+        }
     }
-
     #tasks {
+        position: absolute;
         justify-content: flex-start;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    #profile,
+    #filter {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.6rem;
+    }
+
+    #filter button {
+        order: 2;
     }
 }

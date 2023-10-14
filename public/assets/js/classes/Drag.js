@@ -20,6 +20,10 @@ class Drag {
             task.classList.add('preview')
             this.prepend(task)
         }
+
+        else {
+            task.classList.remove('preview')
+        }
    
     }
 }

@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Kanban</title>
-        <meta name="description" content="The best Kanban of World">
+        <meta name="description" content="The best Kanban of World" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -13,68 +13,71 @@
         />
     </head>
     <body>
-        <nav>
+        <header>
             <img src="/assets/img/logo.svg" alt="Logo Website" />
-            <ul>
-                <li>
-                    <img src="/assets/img/icons/panel-icon.svg" alt="Icon panel" />
-                    <a href="#" class="activated"> Boards </a>
-                </li>
-                <li>
-                    <img src="/assets/img/icons/team-icon.svg" alt="Icon team" />
-                    <a href="#"> Teams </a>
-                </li>
-                <li>
-                    <img src="/assets/img/icons/document-icon.svg" alt="Icon document" />
-                    <a href="#"> Reports </a>
-                </li>
-                <li>
-                    <img src="/assets/img/icons/settings-icon.svg" alt="Icon settings" />
-                    <a href="#"> Settings </a>
-                </li>
-            </ul>
-            <img
-                src="/assets/img/icons/icon-menu.svg"
-                alt="Icon Menu"
-                id="icon-menu"
-            />
-        </nav>
-        <main>
-            <div id="navbar-mobile">
-                <ul class="menu-mobile">
+            <nav>
+                <ul>
                     <li>
-                        <img src="/assets/img/icons/panel-icon.svg" alt="Icon panel" />
+                        <img
+                            src="/assets/img/icons/panel-icon.svg"
+                            alt="Icon panel"
+                        />
                         <a href="#" class="activated"> Boards </a>
                     </li>
                     <li>
-                        <img src="/assets/img/icons/team-icon.svg" alt="Icon team" />
+                        <img
+                            src="/assets/img/icons/team-icon.svg"
+                            alt="Icon team"
+                        />
                         <a href="#"> Teams </a>
                     </li>
                     <li>
-                        <img src="/assets/img/icons/document-icon.svg" alt="Icon document" />
+                        <img
+                            src="/assets/img/icons/document-icon.svg"
+                            alt="Icon document"
+                        />
                         <a href="#"> Reports </a>
                     </li>
                     <li>
-                        <img src="/assets/img/icons/settings-icon.svg" alt="Icon settings" />
+                        <img
+                            src="/assets/img/icons/settings-icon.svg"
+                            alt="Icon settings"
+                        />
                         <a href="#"> Settings </a>
                     </li>
                 </ul>
-            </div>
-            <header>
+            </nav>
+            <button id="icon-menu-mobile">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </button>
+        </header>
+        <main>
+            <div id="header">
                 <div id="profile">
                     <div id="edit">
                         <h1>My Kanban</h1>
-                        <img src="/assets/img/icons/pen-icon.svg" alt="Icon pen" />
+                        <img
+                            src="/assets/img/icons/pen-icon.svg"
+                            alt="Icon pen"
+                        />
                     </div>
                     <img src="/assets/img/profile.svg" alt="Image of profile" />
                 </div>
                 <div id="filter">
                     <button type="button">
-                        <img src="/assets/img/icons/filter-icon.svg" alt="Icon filter" />
+                        <img
+                            src="/assets/img/icons/filter-icon.svg"
+                            alt="Icon filter"
+                        />
                         Filter
                     </button>
                     <div id="field">
-                        <img src="/assets/img/icons/search-icon.svg" alt="Icon search" />
+                        <img
+                            src="/assets/img/icons/search-icon.svg"
+                            alt="Icon search"
+                        />
                         <input
                             type="text"
                             name="search"
@@ -83,7 +86,7 @@
                         />
                     </div>
                 </div>
-            </header>
+            </div>
             <section id="tasks">
                 <div id="to-do" class="group-task">
                     <h3 class="status">To do</h3>
