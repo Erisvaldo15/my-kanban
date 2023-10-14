@@ -28,11 +28,9 @@ tasks.forEach(task => {
         const touchedElement = e.target;
 
         // Salvar informações para cálculos de deslocamento
-        touchedElement.startX = e.touches[0].clientX - touchedElement.getBoundingClientRect().left;
-        touchedElement.startY = e.touches[0].clientY - touchedElement.getBoundingClientRect().top;
-
-        // Adicionar classe para indicar arrastar
-        touchedElement.classList.add('is-dragging');
+        touchedElement.startX = e.touches[0].clientX - (touchedElement.getBoundingClientRect().left + touchedElement.offsetWidth);
+        touchedElement.startY = e.touches[0].clientY - (touchedElement.getBoundingClientRect().top + touchedElement.offsetHeight);
+    
     });
 
     task.addEventListener('touchmove', (e) => {
@@ -40,7 +38,9 @@ tasks.forEach(task => {
 
         const touchedElement = e.target;
 
-        if (touchedElement.classList.contains('dragging')) {
+        touchedElement.classList.add('is-dragging');
+
+        if (touchedElement.classList.contains('is-dragging')) {
             // Atualizar a posição do elemento conforme o movimento do toque
             touchedElement.style.left = e.touches[0].clientX - touchedElement.startX + 'px';
             touchedElement.style.top = e.touches[0].clientY - touchedElement.startY + 'px';

@@ -17,14 +17,9 @@ class Drag {
 
         if(task && !this.contains(task)) {
             task.classList.remove('is-dragging')
-            task.classList.add('preview')
             this.prepend(task)
         }
 
-        else {
-            task.classList.remove('preview')
-        }
-   
     }
 }
 

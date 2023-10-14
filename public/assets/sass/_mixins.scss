@@ -7,10 +7,6 @@
     border: 0.2rem dashed $primary-color;
 }
 
-@mixin task-preview() {
-    opacity: 0.6;
-}
-
 @mixin personalized-scroll() {
     &::-webkit-scrollbar-thumb {
         background-color: $primary-color;
